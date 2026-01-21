@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DDS Gold Prophet EA Banner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .banner {
+            width: 100%;
+            max-width: 1400px;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.3);
+            position: relative;
+        }
+
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900"><circle cx="120" cy="120" r="60" fill="%23d4af37" opacity="0.05"/><circle cx="1280" cy="780" r="90" fill="%23d4af37" opacity="0.05"/><circle cx="1050" cy="220" r="70" fill="%23d4af37" opacity="0.08"/><rect x="60" y="700" width="45" height="70" fill="%23d4af37" opacity="0.06"/><rect x="1200" y="120" width="35" height="60" fill="%23d4af37" opacity="0.07"/></svg>');
+            pointer-events: none;
+        }
+
+        .header {
+            background: linear-gradient(90deg, #d4af37 0%, #f4d03f 100%);
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 56px;
+            font-weight: 900;
+            color: #0a0e27;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            letter-spacing: 2px;
+        }
+
+        .version {
+            font-size: 22px;
+            color: #0a0e27;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: #1a1f3a;
+            margin-top: 12px;
+            font-weight: 500;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            padding: 50px;
+            position: relative;
+        }
+
+        .left-section {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .chart-preview {
+            background: linear-gradient(135deg, #1a1f3a 0%, #0a0e27 100%);
+            border: 3px solid #d4af37;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chart-icon {
+            font-size: 100px;
+            margin-bottom: 25px;
+        }
+
+        .chart-text {
+            color: #d4af37;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .tagline {
+            background: linear-gradient(90deg, #d4af37 0%, #f4d03f 100%);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: #0a0e27;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .right-section h2 {
+            color: #d4af37;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .features {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .feature {
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid #d4af37;
+            padding: 22px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover {
+            background: rgba(212, 175, 55, 0.2);
+            transform: translateX(5px);
+        }
+
+        .feature-title {
+            color: #f4d03f;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .feature-icon {
+            font-size: 28px;
+        }
+
+        .feature-desc {
+            color: #e0e0e0;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .usp-section {
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+            padding: 40px 50px;
+            margin: 0 50px 50px 50px;
+            border-radius: 15px;
+        }
+
+        .usp-section h3 {
+            color: #0a0e27;
+            font-size: 28px;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 800;
+        }
+
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .usp-item {
+            background: rgba(10, 14, 39, 0.3);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .usp-icon {
+            font-size: 50px;
+            margin-bottom: 12px;
+        }
+
+        .usp-title {
+            color: #0a0e27;
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .usp-desc {
+            color: #1a1f3a;
+            font-size: 15px;
+        }
+
+        .footer {
+            background: #0a0e27;
+            padding: 40px;
+            text-align: center;
+            border-top: 3px solid #d4af37;
+        }
+
+        .contact {
+            font-size: 32px;
+            color: #f4d03f;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .phone-button {
+            display: inline-block;
+            font-size: 44px;
+            color: #d4af37;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-decoration: none;
+            padding: 15px 40px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 3px solid #d4af37;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            margin: 10px 0;
+        }
+
+        .phone-button:hover {
+            background: rgba(212, 175, 55, 0.3);
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .phone-button:active {
+            transform: scale(0.98);
+        }
+
+        .whatsapp-icon {
+            font-size: 40px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        .cta {
+            margin-top: 20px;
+            color: #e0e0e0;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+                padding: 25px;
+            }
+            
+            .usp-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo {
+                font-size: 36px;
+            }
+            
+            .phone-button {
+                font-size: 32px;
+                padding: 12px 30px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .subtitle {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="header">
+            <div class="logo">⚡ DDS GOLD PROPHET ⚡</div>
+            <div class="version">v1.0</div>
+            <div class="subtitle">The Ultimate MT5 Expert Advisor for XAUUSD</div>
+        </div>
+
+        <div class="content">
+            <div class="left-section">
+                <div class="chart-preview">
+                    <div class="chart-icon">📈</div>
+                    <div class="chart-text">Smart Trading Dashboard</div>
+                    <div class="chart-text" style="font-size: 16px; margin-top: 12px; opacity: 0.8;">Real-time Performance Monitoring</div>
+                </div>
+                <div class="tagline">
+                    ඔබ නිදා සිටින විටත් රන් වෙළඳපොළෙන් ලාභ උපයන්න! 🌙✨
+                </div>
+            </div>
+
+            <div class="right-section">
+                <h2>🎯 ප්‍රධාන විශේෂාංග</h2>
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-title">
+                            <span class="feature-icon">🎯</span>
+                            Smart Price Action Strategy
+                        </div>
+                        <div class="feature-desc">Bar Opening මිල මත පදනම් වූ නිවැරදි තීරණ</div>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-title">
+                            <span class="feature-icon">📊</span>
+                            Pending Order System
+                        </div>
+                        <div class="feature-desc">Buy/Sell Limit භාවිතා කරමින් අඩු අවදානමකින් වෙළඳාම</div>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-title">
+                            <span class="feature-icon">💰</span>
+                            Daily Profit Target
+                        </div>
+                        <div class="feature-desc">දෛනික ලාභ ඉලක්කය සපුරාගත් පසු ස්වයංක්‍රීයව වෙළඳාම නැවතීම</div>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-title">
+                            <span class="feature-icon">🛡️</span>
+                            Risk Management
+                        </div>
+                        <div class="feature-desc">Auto Trailing Stop සහ ගිණුමේ ප්‍රමාණයට අනුව Risk Percent සැකසීම</div>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-title">
+                            <span class="feature-icon">📱</span>
+                            Real-time Dashboard
+                        </div>
+                        <div class="feature-desc">ගිණුමේ විස්තර සහ ප්‍රගතිය පෙන්වන පැහැදිලි පාලක පුවරුව</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="usp-section">
+            <h3>✨ සුවිශේෂී පහසුකම්</h3>
+            <div class="usp-grid">
+                <div class="usp-item">
+                    <div class="usp-icon">🇱🇰</div>
+                    <div class="usp-title">Sinhala Alerts</div>
+                    <div class="usp-desc">වෙළඳපොළේ සිදුවන දෑ සිංහලෙන්ම දැනගන්න</div>
+                </div>
+
+                <div class="usp-item">
+                    <div class="usp-icon">📲</div>
+                    <div class="usp-title">Telegram Notifications</div>
+                    <div class="usp-desc">ඕඩර් විවෘත වන සහ වැසෙන විට වහාම පණිවිඩ</div>
+                </div>
+
+                <div class="usp-item">
+                    <div class="usp-icon">⏱️</div>
+                    <div class="usp-title">M10 Optimized</div>
+                    <div class="usp-desc">රන් වෙළඳාම සඳහාම විශේෂයෙන් සැකසූ කාල රාමුව</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="contact">📞 Contact Developer</div>
+            <a href="https://wa.me/94776573369" class="phone-button" target="_blank">
+                <span class="whatsapp-icon">💬</span>+94 77 657 3369
+            </a>
+            <div class="cta">Professional Trading Made Easy for Everyone 🚀</div>
+            <div class="cta" style="font-size: 18px; margin-top: 12px; color: #d4af37;">
+                ඔබේ Profit Target එකට යන ගමන අදම අරඹන්න! 💎
+            </div>
+        </div>
+    </div>
+</body>
+</html>
